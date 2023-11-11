@@ -1,0 +1,7 @@
+/*
+    This rule below will apply the font defined in tailwind.config.js to all elements.
+*/
+
+* {
+    @apply font-athiti;
+}
