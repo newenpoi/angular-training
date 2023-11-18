@@ -6,12 +6,14 @@ import { StatsDisplayComponent } from './stats-display/stats-display.component';
 
 import { FormsModule } from '@angular/forms';
 import { NumeralFormatPipe } from './pipes/numeral-format.pipe';
+import { ProgressiveResponseComponent } from './progressive-response/progressive-response.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         StatsDisplayComponent,
-        NumeralFormatPipe
+        NumeralFormatPipe,
+        ProgressiveResponseComponent
     ],
     imports: [
         BrowserModule,
