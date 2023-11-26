@@ -1,7 +1,7 @@
-<!-- PokémonComponent -->
+<!-- PokemonComponent -->
 <div class="bg-white shadow-md rounded">
     <div class="flex border-b border-b-stone-200">
-        <h2 class="w-2/3 font-bold text-sm bg-cyan-100 leading-6 pl-2"><a href="" title="{{ pokemon.name | uppercase }}" class="text-blue-800 hover:text-blue-400">{{ pokemon.name | uppercase }}</a></h2>
+        <h2 class="w-2/3 font-bold text-sm bg-cyan-100 leading-6 pl-2"><a routerLink="/pokemon/{{pokemon.id}}" title="{{ pokemon.name | uppercase }}" class="text-blue-800 hover:text-blue-400">{{ pokemon.name | uppercase }}</a></h2>
         <h2 class="text-center flex-grow leading-6 font-thin">{{ pokemon.id }}</h2>
     </div>
     <img [src]="pokemon.sprite" alt="Sprite of {{ pokemon.name }}">

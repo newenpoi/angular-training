@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { PokemonService } from '../service/pokemon.service';
-import { Pokemon } from '../model/pokemon.model';
+import { Pokemon } from '../model/pokemon/pokemon.model';
 
 @Component({
     selector: 'app-pokedex',
