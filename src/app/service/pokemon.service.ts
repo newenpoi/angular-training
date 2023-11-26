@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, of, shareReplay } from 'rxjs';
-import { Pokemon } from "../model/pokemon.model";
-import { PokemonExtended } from "../model/pokemon.extended.model";
+import { Pokemon } from "../model/pokemon/pokemon.model";
+import { PokemonExtended } from "../model/pokemon/pokemon.extended.model";
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +15,7 @@ import { PokemonExtended } from "../model/pokemon.extended.model";
 */
 
 export class PokemonService {
-    private cache = new Map<string, Observable<PokemonExtended>>();
-    
+    private cache = new Map<number | string, Observable<PokemonExtended>>();
     private url!: string;
 
     constructor(private http: HttpClient) {
@@ -27,22 +26,24 @@ export class PokemonService {
         return this.http.get<any>(`${this.url}/?limit=${limit}&offset=${offset}`).pipe(map(response => response.results as Pokemon[]));
     }
 
-    public findOne(name: string): Observable<PokemonExtended> {
-        if (!this.cache.has(name)) {
-            const observable = this.http.get<any>(`${this.url}/${name}`).pipe(
+    public findOne(identifier: number | string): Observable<PokemonExtended> {
+        if (!this.cache.has(identifier)) {
+            const observable = this.http.get<any>(`${this.url}/${identifier}`).pipe(
                 map(response => ({
                     name: response.name,
-                    url: `${this.url}/${name}`,
+                    url: `${this.url}/${identifier}`,
                     id: response.id,
                     types: response.types,
-                    sprite: response.sprites.front_default
+                    sprite: response.sprites.front_default,
+                    artwork: response.sprites.other['official-artwork'].front_default || 'path/to/default/image.png',
+                    abilities: response.abilities,
                 } as PokemonExtended)), shareReplay(1)
             );
 
-            this.cache.set(name, observable);
+            this.cache.set(identifier, observable);
         }
 
         // Fallback to an empty observable (une approche défensive).
-        return this.cache.get(name) || of({} as PokemonExtended);
+        return this.cache.get(identifier) || of({} as PokemonExtended);
     }
 }
