@@ -5,5 +5,7 @@ export interface Pokemon {
     id?: number;
     types?: Array<{ type: { name: string } }>;
     sprite?: string;
+    artwork?: string;
+    
     species?: { name: string, url: string; };
 }
