@@ -13,6 +13,7 @@ import { PokemonSingleComponent } from './pokemon-single/pokemon-single.componen
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonStatsComponent } from './pokemon-stats/pokemon-stats.component';
+import { PokemonTypesComponent } from './pokemon-types/pokemon-types.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { PokemonStatsComponent } from './pokemon-stats/pokemon-stats.component';
         PokemonComponent,
         PokemonSingleComponent,
         PokemonStatsComponent,
+        PokemonTypesComponent,
     ],
     imports: [
         BrowserModule,

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map, of, shareReplay } from 'rxjs';
 import { Pokemon } from "../model/pokemon/pokemon.model";
 import { PokemonExtended } from "../model/pokemon/pokemon.extended.model";
+import { PokemonTypeDetails } from "../model/pokemon/pokemon-type-details";
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,7 @@ import { PokemonExtended } from "../model/pokemon/pokemon.extended.model";
 */
 
 export class PokemonService {
+
     private cache = new Map<number | string, Observable<PokemonExtended>>();
     private url!: string;
 
@@ -47,4 +49,9 @@ export class PokemonService {
         // Fallback to an empty observable (une approche défensive).
         return this.cache.get(identifier) || of({} as PokemonExtended);
     }
+
+    public fetchTypeDetails(name: string): Observable<PokemonTypeDetails> {
+        return this.http.get<PokemonTypeDetails>(`https://pokeapi.co/api/v2/type/${name}`);
+    }
+    
 }
