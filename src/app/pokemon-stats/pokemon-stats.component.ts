@@ -11,6 +11,7 @@ export class PokemonStatsComponent implements OnChanges {
     @Input() stats!: Stat[];
     maxStat: number = 255;
 
+    // Convention de nommage pour le projet.
     naming: { [key: string]: string } = {
         'hp': 'HP',
         'attack': 'ATT',
@@ -25,7 +26,7 @@ export class PokemonStatsComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         // Si des changements apparaissent et qu'une valeur existe.
         if (changes['stats'] && changes['stats'].currentValue) {
-            // Et c'est là qu'on peut faire ce qu'on veut des stats.
+            // Et c'est là qu'on peut faire ce qu'on veut des stats si nécessaire.
         }
     }
 
@@ -37,8 +38,8 @@ export class PokemonStatsComponent implements OnChanges {
         return (baseStat / this.maxStat * 100) + '%';
     }
 
-    getStatNaming(type: string): string {
+    getStatNaming(stat: string): string {
         // Couleur par défaut si le type est inconnu.
-        return this.naming[type] || 'UNKNOWN';
+        return this.naming[stat] || 'UNKNOWN';
     }
 }

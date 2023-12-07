@@ -1,8 +1,9 @@
+import { Type } from "./pokemon-type";
 import { Pokemon } from "./pokemon.model";
 
 export interface PokemonCard extends Pokemon {
     id: number;
-    types: Array<{ type: { name: string } }>;
+    types: Array<Type>;
     sprite: string;
     
 	// Contains infos like evolutions, descriptions, ...
