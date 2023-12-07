@@ -12,13 +12,25 @@
         <div>
             <img [src]="pokemon.artwork" alt="Official Artwork {{ pokemon.name }}">
         </div>
+
+        <!-- TODO : Types Weakness -->
+        <h2 class="font-bold text-sm text-center uppercase bg-indigo-100 leading-6 pl-2">Weakness</h2>
+        <div class="font-athiti">
+            <div class="flex">
+                <h2 [class]="getTypeColor('rock') + ' w-3/4'" class="text-center font-vt">{{ 'rock' | uppercase }}</h2>
+                <h2 class="flex-grow text-center">X2</h2>
+            </div>
+            <div class="flex">
+                <h2 [class]="getTypeColor('water') + ' w-3/4'" class="text-center font-vt">{{ 'water' | uppercase }}</h2>
+                <h2 class="flex-grow text-center">X2</h2>
+            </div>
+        </div>
         
-        <h2 class="font-bold text-sm text-center uppercase bg-indigo-100 leading-6 pl-2">Abilities</h2>
+        <h2 class="font-bold text-sm text-center uppercase bg-indigo-100 leading-6 mt-4 pl-2">Abilities</h2>
         <div class="flex border-b border-x border-b-stone-200">
             <h2 *ngFor="let ability of pokemon.abilities" [class]="(pokemon.abilities!.length > 1 ? ' w-1/2 border-r' : ' w-full')" class="text-center font-vt">{{ ability.ability.name | uppercase }}</h2>
         </div>
         
-        <!-- Potentially a Sub Component that holds the Pokemon Moves called PokeMoves ? -->
-        <div></div>
+        <app-pokemon-stats [stats]="pokemon.stats" class="mt-4"></app-pokemon-stats>
     </div>
 </div>

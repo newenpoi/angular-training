@@ -37,6 +37,7 @@ export class PokemonService {
                     sprite: response.sprites.front_default,
                     artwork: response.sprites.other['official-artwork'].front_default || 'path/to/default/image.png',
                     abilities: response.abilities,
+                    stats: response.stats
                 } as PokemonExtended)), shareReplay(1)
             );
 

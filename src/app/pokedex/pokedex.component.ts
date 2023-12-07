@@ -25,6 +25,12 @@ export class PokedexComponent implements OnInit {
         this.loadMore();
     }
 
+    /**
+     * This method allows us to fetch data into the list of Pokemon sequentially based on the infinite loading technique.
+     * By using offsets and limits we can retrieve data based on the current pagination.
+     * Be careful because the more Pokemon are loaded the more it might slow down the page.
+     * @returns 
+     */
     loadMore() {
         if (this.isLoading || this.allDataLoaded) return;
 

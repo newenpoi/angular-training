@@ -7,5 +7,7 @@ export interface Pokemon {
     sprite?: string;
     artwork?: string;
     
-    species?: { name: string, url: string; };
+	// Contains infos like evolutions, descriptions, ...
+	// The url is the following for example : https://pokeapi.co/api/v2/pokemon-species/5
+    species: { name: string, url: string; };
 }

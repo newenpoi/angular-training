@@ -4,7 +4,7 @@
         <h2 class="w-2/3 font-bold text-sm bg-cyan-100 leading-6 pl-2"><a routerLink="/pokemon/{{pokemon.id}}" title="{{ pokemon.name | uppercase }}" class="text-blue-800 hover:text-blue-400">{{ pokemon.name | uppercase }}</a></h2>
         <h2 class="text-center flex-grow leading-6 font-thin">{{ pokemon.id }}</h2>
     </div>
-    <img [src]="pokemon.artwork" alt="Sprite of {{ pokemon.name }}">
+    <img [src]="pokemon.sprite" alt="Sprite of {{ pokemon.name }}">
     <div class="flex border-b border-b-stone-200">
         <h2 *ngFor="let poketype of pokemon.types" [class]="getTypeColor(poketype.type.name) + (pokemon.types!.length > 1 ? ' w-1/2' : ' w-full')" class="text-center font-vt">{{ poketype.type.name | uppercase }}</h2>
     </div>
