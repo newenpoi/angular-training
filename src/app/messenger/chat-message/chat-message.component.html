@@ -1,0 +1,3 @@
+<p class="message" [ngClass]="{'interlocutor': message.user.role === 'client', 'sender': message.user.role === 'user'}">
+    {{ message.content }}
+</p>

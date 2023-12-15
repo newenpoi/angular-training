@@ -14,6 +14,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonStatsComponent } from './pokemon-stats/pokemon-stats.component';
 import { PokemonTypesComponent } from './pokemon-types/pokemon-types.component';
+import { LandingComponent } from './landing/landing.component';
+import { ChatComponent } from './messenger/chat/chat.component';
+import { ChatGroupComponent } from './messenger/chat-group/chat-group.component';
+import { ChatMessageComponent } from './messenger/chat-message/chat-message.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +30,10 @@ import { PokemonTypesComponent } from './pokemon-types/pokemon-types.component';
         PokemonSingleComponent,
         PokemonStatsComponent,
         PokemonTypesComponent,
+        LandingComponent,
+        ChatComponent,
+        ChatGroupComponent,
+        ChatMessageComponent
     ],
     imports: [
         BrowserModule,

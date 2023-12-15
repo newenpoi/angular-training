@@ -1,0 +1,89 @@
+<!-- Chat Container -->
+<div class="flex flex-col h-screen">
+    
+    <div class="flex-1 overflow-y-auto p-4 space-y-2">
+        <app-chat-group *ngFor="let message of messages" [group]="messages"></app-chat-group>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4">
+        <form class="flex gap-2">
+            <input type="text" placeholder="Type a message..." class="flex-1 p-2 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4">Send</button>
+        </form>
+    </div>
+</div>
+
+<!-- Example Template -->
+
+<!-- Chat Container -->
+<div class="flex flex-col h-screen">
+    <!-- Messages Area -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-2">
+        
+        <!-- Interlocutor Message Group -->
+        <div class="flex flex-col space-y-2">
+            <div class="flex items-end">
+                <img src="assets/avatar/atsuko.png" alt="Atsuko" class="w-12 h-12 rounded-full mr-2">
+                <div>
+                    <h2 class="pl-2 font-bold">Atsuko</h2>
+                    <p class="message interlocutor">Hello, sensei, about our conversation earlier...</p>
+                </div>
+            </div>
+            <div class="pl-14">
+                <p class="message interlocutor">You asked me about hobbies, right?</p>
+                <p class="message interlocutor">I like flowers.</p>
+            </div>
+        </div>
+
+        <!-- User Message Group -->
+        <div class="flex flex-col space-y-2 items-end">
+            <div class="flex items-end">
+                <div>
+                    <h2 class="pr-2 font-bold text-right">Newen</h2>
+                    <p class="message sender self-end">Hello, Atsuko.</p>
+                </div>
+                <img src="assets/avatar/newen.jpg" alt="Newen" class="w-12 h-12 rounded-full ml-2">
+            </div>
+            <div class="pr-14">
+                <p class="message sender self-end">You mean like... growing flowers?</p>
+            </div>
+        </div>
+
+        <!-- Interlocutor Message Group -->
+        <div class="flex flex-col space-y-2">
+            <div class="flex items-end">
+                <img src="assets/avatar/atsuko.png" alt="Atsuko" class="w-12 h-12 rounded-full mr-2">
+                <div>
+                    <h2 class="pl-2 font-bold">Atsuko</h2>
+                    <p class="message interlocutor">Perhaps I can make a flower club one day.</p>
+                </div>
+            </div>
+            <div class="pl-14">
+                <p class="message interlocutor">I'm sure i'll be the only member though.</p>
+            </div>
+        </div>
+
+        <!-- User Message Group -->
+        <div class="flex flex-col space-y-2 items-end">
+            <div class="flex items-end">
+                <div>
+                    <h2 class="pr-2 font-bold text-right">Newen</h2>
+                    <p class="message sender self-end">D...dont give up, Atsuko.</p>
+                </div>
+                <img src="assets/avatar/newen.jpg" alt="Newen" class="w-12 h-12 rounded-full ml-2">
+            </div>
+            <div class="pr-14">
+                <p class="message sender self-end">Just do it.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="p-4">
+        <form class="flex gap-2">
+            <input type="text" placeholder="Type a message..." class="flex-1 p-2 border rounded-lg focus:outline-none focus:border-blue-500" />
+            <button type="submit" class="bg-blue-500 text-white rounded-lg px-4">Send</button>
+        </form>
+    </div>
+</div>

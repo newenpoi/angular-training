@@ -1,0 +1,13 @@
+<div class="flex flex-col space-y-2">
+    <div *ngIf="group.length" class="flex items-end">
+        <img [src]="group[0].user.avatar" alt="Avatar" class="avatar">
+        <div>
+            <h2 class="pl-2 font-bold">{{ group[0].user.name }}</h2>
+            <app-chat-message *ngFor="let message of group" [message]="message"></app-chat-message>
+        </div>
+    </div>
+    
+    <div *ngIf="group.length > 1" class="pl-14">
+        <app-chat-message *ngFor="let message of group.slice(1)" [message]="message"></app-chat-message>
+    </div>
+</div>
