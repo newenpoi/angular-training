@@ -13,6 +13,10 @@ export class PokemonTypesComponent implements OnInit {
     @Input() types!: Type[];
     details: PokemonTypeDetails[] = [];
 
+    weaknesses = [];
+    resistances = [];
+    nullified = [];
+
     // Avec une technique clé valeur pour obtenir correctement une classe tailwind.
     typeColors: { [key: string]: string } = {
         'normal': 'bg-gray-400',
@@ -61,9 +65,11 @@ export class PokemonTypesComponent implements OnInit {
             if (detail.damage_relations.double_damage_from.some(type => type.name === attackingType)) {
                 multiplier *= 2;
             }
+            
             if (detail.damage_relations.half_damage_from.some(type => type.name === attackingType)) {
                 multiplier *= 0.5;
             }
+
             if (detail.damage_relations.no_damage_from.some(type => type.name === attackingType)) {
                 multiplier = 0;
             }
